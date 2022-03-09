@@ -4,15 +4,14 @@ class CharacterService {
         this.endpoint = endpoint
     }
 
-   getCharacters(){
+   getCharacters() {
     fetch(`${this.endpoint}/characters`) //when endpoint is hit data is array of objects
         .then(resp => resp.json())// all resps come back as strings
         .then(characters => {
-            debugger
-            for (const character of characters){
-                const c = new Character(character)
-                c.appendToDom
-            }
+            characters.forEach(character => {
+                let c = new Character(character)
+                document.querySelector('#characters-container').innerHTML += c.CharacterHTML()
+            })
         })
     }
 }
