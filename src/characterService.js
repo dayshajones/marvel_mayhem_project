@@ -10,8 +10,9 @@ class CharacterService {
         .then(characters => {
             characters.forEach(character => {
                 let c = new Character(character)
-                document.querySelector('#characters-container').innerHTML += c.CharacterHTML()
+                Character.charactersContainer.innerHTML += c.characterHTML()
             })
         })
     }
+    
 }
