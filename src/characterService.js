@@ -15,12 +15,12 @@ class CharacterService{
             }
         })
     }
-
-    createCharacter() {
+    
+    createCharacter(){
         const character = {
-            name: document.getElementById("name").value,
-            description: document.getElementById("description").value,
-            thumbnail: document.getElementById("thumbnail").value,
+            name: document.getElementById('name').value,
+            description: document.getElementById('description').value,
+            thumbnail: document.getElementById('thumbnail').value,
             team_id: 1
         }
 
@@ -33,11 +33,10 @@ class CharacterService{
         }
 
         fetch(`${this.endpoint}/characters`, configObj)
-        .then(resp = resp.json())
-        .then(character => {
+        .then(resp => resp.json())
+        .then(contact => {
             const c = new Character(character)
             c.addToDom()
         })
     }
-    
 }

@@ -5,12 +5,16 @@ class Character {
     static charactersContainer = document.getElementById("characters-container")
     static characterForm = document.getElementById('form-container')
 
-    constructor({name, description, thumbnail, team_id }) {
+    constructor({id, name, description, thumbnail, team_id }) {
+        this.id = id
         this.name = name
         this.description = description
         this.thumbnail = thumbnail
         this.team_id = team_id
+
         this.element = document.createElement('ul')
+        this.element.dataset.id = this.id;
+        this.element.id = `character-${id}`
         Character.all.push(this)
     }
 
@@ -39,7 +43,7 @@ class Character {
             <br><br>
             Thumbnail: <input type="text" id="thumbnail">
             <br><br>
-            <input type="submit" id="Create Character">
+            <input type="submit" id="create">
         <form>
         `
     }
