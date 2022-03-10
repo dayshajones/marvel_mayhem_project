@@ -43,6 +43,9 @@ class Character {
             <br><br>
             Thumbnail: <input type="text" id="thumbnail">
             <br><br>
+            Select Team: <select name="team_id" id="team-dropdown">
+
+            </select></br>
             <input type="submit" id="create">
         <form>
         `

@@ -21,7 +21,7 @@ class CharacterService{
             name: document.getElementById('name').value,
             description: document.getElementById('description').value,
             thumbnail: document.getElementById('thumbnail').value,
-            team_id: 1
+            team_id: document.getElementById("team-dropdown").value
         }
 
         const configObj = {
