@@ -2,39 +2,45 @@ class Character {
     //remember objects
 
     static all = []
-    static charactersContainer = document.querySelector('#characters-container')
-    static formContainer = document.querySelector('#form-container')
+    static charactersContainer = document.getElementById("characters-container")
+    static characterForm = document.getElementById('form-container')
 
     constructor({name, description, thumbnail, team_id }) {
         this.name = name
         this.description = description
         this.thumbnail = thumbnail
         this.team_id = team_id
+        this.element = document.createElement('ul')
         Character.all.push(this)
     }
 
     characterHTML(){ // responsible for creating innerHTML for element
-        return  `
+        this.element.innerHTML += `
             <div>
                 <h3>${this.name}</h3>
                 <p>${this.description}</p>
                 <img src=${this.thumbnail} height="200" width="250">
+                <br><br>
             </div>
         `
+        return this.element
+    }
+
+    addToDom(){
+        Character.charactersContainer.append(this.characterHTML())
     }
 
     static renderForm() {
-        Character.formContainer.innerHTML += `
-            <form id="new-character-form">
-                <h3>Create a Character!</h3>
-	            Name: <input type="text" id="name">
-	            <br><br>
-	            Description: <textarea id="input-description"></textarea>
-	            <br><br>
-	            Thumbnail: <input type="text" id="thumbnail">
-	            <br><br>
-	            <input type="submit" id="create">
-            </form>
+        Character.characterForm.innerHTML += `
+        <form id="new-character-form">
+            Name: <input type="text" id="name">
+            <br><br>
+            Description: <input type="text" id="description">
+            <br><br>
+            Thumbnail: <input type="text" id="thumbnail">
+            <br><br>
+            <input type="submit" id="Create Character">
+        <form>
         `
     }
 }

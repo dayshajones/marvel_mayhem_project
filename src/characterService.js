@@ -1,6 +1,6 @@
-class CharacterService {
+class CharacterService{
 
-    constructor(endpoint) { //where we set properties for each instance of the class
+    constructor(endpoint){
         this.endpoint = endpoint
     }
 
@@ -8,10 +8,35 @@ class CharacterService {
     fetch(`${this.endpoint}/characters`) //when endpoint is hit data is array of objects
         .then(resp => resp.json())// all resps come back as strings
         .then(characters => {
-            characters.forEach(character => {
-                let c = new Character(character)
-                Character.charactersContainer.innerHTML += c.characterHTML()
-            })
+            // characters.forEach(characters => {
+                for (const character of characters){
+                const c = new Character(character)
+                c.addToDom()
+            }
+        })
+    }
+
+    createCharacter() {
+        const character = {
+            name: document.getElementById("name").value,
+            description: document.getElementById("description").value,
+            thumbnail: document.getElementById("thumbnail").value,
+            team_id: 1
+        }
+
+        const configObj = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'            
+            },
+            body: JSON.stringify(character)
+        }
+
+        fetch(`${this.endpoint}/characters`, configObj)
+        .then(resp = resp.json())
+        .then(character => {
+            const c = new Character(character)
+            c.addToDom()
         })
     }
     
