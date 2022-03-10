@@ -34,7 +34,7 @@ class CharacterService{
 
         fetch(`${this.endpoint}/characters`, configObj)
         .then(resp => resp.json())
-        .then(contact => {
+        .then(character => {
             const c = new Character(character)
             c.addToDom()
         })
