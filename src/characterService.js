@@ -39,4 +39,17 @@ class CharacterService{
             c.addToDom()
         })
     }
+
+    patchCharacter(character) {
+        const configObj = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'            
+            },
+            body: JSON.stringify(character)
+        }
+
+        fetch(`${this.port}/characters/${id}`, configObj)
+        .then(character.characterHTML())
+    }
 }

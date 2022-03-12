@@ -25,6 +25,8 @@ class Character {
                 <p>${this.description}</p>
                 <img src=${this.thumbnail} height="200" width="250">
                 <br><br>
+                <button class="edit" data-id=${this.id}>Edit</button>
+                <button class="delete" data-id=${this.id}>Delete</button>
             </div>
         `
         return this.element
@@ -44,10 +46,13 @@ class Character {
             Thumbnail: <input type="text" id="thumbnail">
             <br><br>
             Select Team: <select name="team_id" id="team-dropdown">
-
             </select></br>
             <input type="submit" id="create">
         <form>
         `
+    }
+
+    static findById (id) {
+        return this.all.find(character => character.id === id)
     }
 }
