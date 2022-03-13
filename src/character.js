@@ -13,8 +13,9 @@ class Character {
         this.team_id = team_id
 
         this.element = document.createElement('ul')
-        this.element.dataset.id = this.id;
-        this.element.id = `character-${id}`
+        // this.element.dataset.id = this.id;
+        // this.element.id = `character-${id}`
+        this.element.addEventListener('click', this.handleClick)
         Character.all.push(this)
     }
 
@@ -52,7 +53,13 @@ class Character {
         `
     }
 
-    static findById (id) {
-        return this.all.find(character => character.id === id)
+    // static findById (id) {
+    //     return this.all.find(character => character.id === id)
+    // }
+
+    handleClick = (e) => {
+        if(e.target.innerText === "Delete"){
+        characterService.deleteCharacter(e)
+        }
     }
 }
