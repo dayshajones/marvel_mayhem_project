@@ -26,7 +26,6 @@ class Character {
                 <p>${this.description}</p>
                 <img src=${this.thumbnail} height="200" width="250">
                 <br><br>
-                <button class="edit" data-id=${this.id}>Edit</button>
                 <button class="delete" data-id=${this.id}>Delete</button>
             </div>
         `
