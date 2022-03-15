@@ -39,26 +39,7 @@ class CharacterService{
         })
     }
 
-    // patchCharacter(character) {
-    //     const configObj = {
-    //         method: 'PATCH',
-    //         headers: {
-    //             'Content-Type': 'application/json'            
-    //         },
-    //         body: JSON.stringify(character)
-    //     }
-
-    //     fetch(`${this.endpoint}/characters/${id}`, configObj)
-    //     .then(response => response.json())
-    //     .then(updatedCharacter => {
-    //         character = updatedCharacter
-
-    //     })
-    // }
-
-    deleteCharacter(e){
-        const id = e.target.dataset.id
-        e.target.parentElement.remove()
+    deleteCharacter(id){
         const configObject = {
             method: 'DELETE'
         }

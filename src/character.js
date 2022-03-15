@@ -21,12 +21,19 @@ class Character {
 
     characterHTML(){ // responsible for creating innerHTML for element
         this.element.innerHTML += `
-            <div>
-                <h3>${this.name}</h3>
-                <p>${this.description}</p>
-                <img src=${this.thumbnail} height="200" width="250">
-                <br><br>
-                <button class="delete" data-id=${this.id}>Delete</button>
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src=${this.thumbnail} class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">${this.name}</h5>
+                                <p class="card-text">${this.description}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         `
         return this.element
@@ -56,9 +63,10 @@ class Character {
     //     return this.all.find(character => character.id === id)
     // }
 
-    handleClick = (e) => {
-        if(e.target.innerText === "Delete"){
-        characterService.deleteCharacter(e)
+    handleClick = () => {
+        if(event.target.innerText === "Delete"){
+            this.element.remove()
+        characterService.deleteCharacter(this.id)
         }
     }
 }
