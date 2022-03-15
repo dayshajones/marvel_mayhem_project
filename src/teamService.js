@@ -3,14 +3,14 @@ class TeamService {
         this.endpoint = endpoint
     }
 
-    getTeams() {
-        fetch(`${this.endpoint}/teams`)
-        .then(resp => resp.json())
-        .then( json => {
-            json.forEach(team => {
-                const t = new Team(team)
-                t.addToForm()
-            })
-        })
-    }
+    // getTeams() {
+    //     fetch(`${this.endpoint}/teams`)
+    //     .then(resp => resp.json())
+    //     .then( json => {
+    //         json.data.forEach(team => {
+    //             const t = new Team(team)
+    //             t.addToForm()
+    //         })
+    //     })
+    // }
 }

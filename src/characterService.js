@@ -8,10 +8,14 @@ class CharacterService{
     fetch(`${this.endpoint}/characters`) //when endpoint is hit data is array of objects
         .then(resp => resp.json())// all resps come back as strings
         .then(characters => {
-                for (const character of characters){
+            characters.data.forEach(character => {
                 const c = new Character(character)
-                c.addToDom()
-            }
+                // for (const character of characters){
+                // const c = new Character(character)
+                
+                document.getElementById("characters-container").innerHTML +=
+                c.characterHTML()
+            })
         })
     }
     
@@ -20,7 +24,7 @@ class CharacterService{
             name: document.getElementById('name').value,
             description: document.getElementById('description').value,
             thumbnail: document.getElementById('thumbnail').value,
-            team_id: document.getElementById("team-dropdown").value
+            team:  document.getElementById('team').value
         }
 
         const configObj = {
