@@ -5,16 +5,16 @@ class Character {
     static charactersContainer = document.getElementById("characters-container")
     static characterForm = document.getElementById('form-container')
 
-    constructor(character) {
-        this.id = character.id
-        this.name = character.attributes.name
-        this.description = character.attributes.description
-        this.thumbnail = character.attributes.thumbnail
-        this.team_id = character.attributes.team_id
-        this.team = character.attributes.team.name
-
+    constructor({ name, description, thumbnail, id, team_id }) {
+        this.name = name
+        this.description = description
+        this.thumbnail = thumbnail
+        this.id = id
+        this.team_id = team_id
+        // this.team = team.name
+        // debugger
         this.element = document.createElement('ul')
-        // this.element.addEventListener('click', this.handleClick)
+        this.element.addEventListener('click', this.handleClick)
         Character.all.push(this)
     }
 
@@ -26,7 +26,7 @@ class Character {
                             <div class="card-body">
                                 <h5 class="card-title">${this.name}</h5>
                                 <p class="card-text">${this.description}</p>
-                                <p class="card-text">${this.team}</p>
+                                <p class="card-text">${this.team_id}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
@@ -58,6 +58,7 @@ class Character {
     }
 
     addOnDom(){
+        // Character.charactersContainer.appendChild(this.characterHTML())
         Character.charactersContainer.append(this.characterHTML())
     }
 
