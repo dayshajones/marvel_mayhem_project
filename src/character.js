@@ -13,15 +13,13 @@ class Character {
         this.team_id = character.attributes.team_id
         this.team = character.attributes.team.name
 
-        // this.element = document.createElement('ul')
-        // this.element.dataset.id = this.id;
-        // this.element.id = `character-${id}`
+        this.element = document.createElement('ul')
         // this.element.addEventListener('click', this.handleClick)
         Character.all.push(this)
     }
 
     characterHTML(){ // responsible for creating innerHTML for element
-        return `
+        this.element.innerHTML += `
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
                         <img src=${this.thumbnail} class="card-img-top" alt="...">
@@ -41,9 +39,6 @@ class Character {
         return this.element
     }
 
-    // addToDom(){
-    //     Character.charactersContainer.append(this.characterHTML())
-    // }
 
     static renderForm() {
         Character.characterForm.innerHTML += `
@@ -54,16 +49,17 @@ class Character {
             <br><br>
             Character Thumbnail: <input type="text" id="thumbnail">
             <br><br>
-            Team Name: <input type="text" id="team">
+            Select Team: <select name="team_id" id="team-dropdown">
+            </select></br>
             <br><br>
             <input type="submit" id="create">
         <form>
         `
     }
 
-    // static findById (id) {
-    //     return this.all.find(character => character.id === id)
-    // }
+    addOnDom(){
+        Character.charactersContainer.append(this.characterHTML())
+    }
 
     handleClick = () => {
         if(event.target.innerText === "Delete"){

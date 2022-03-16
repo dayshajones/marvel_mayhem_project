@@ -10,11 +10,10 @@ class CharacterService{
         .then(characters => {
             characters.data.forEach(character => {
                 const c = new Character(character)
-                // for (const character of characters){
-                // const c = new Character(character)
                 
-                document.getElementById("characters-container").innerHTML +=
-                c.characterHTML()
+                // document.getElementById("characters-container").innerHTML +=
+                // c.characterHTML()
+                c.addOnDom()
             })
         })
     }
@@ -24,7 +23,7 @@ class CharacterService{
             name: document.getElementById('name').value,
             description: document.getElementById('description').value,
             thumbnail: document.getElementById('thumbnail').value,
-            team:  document.getElementById('team').value
+            team_id: document.getElementById("team-dropdown").value
         }
 
         const configObj = {
@@ -39,9 +38,11 @@ class CharacterService{
         .then(resp => resp.json())
         .then(character => {
             const c = new Character(character)
-            c.addToDom()
+            debugger
+            c.addOnDom()
         })
     }
+
 
     deleteCharacter(id){
         const configObject = {
