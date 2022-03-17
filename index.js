@@ -4,14 +4,22 @@ const teamService = new TeamService(endpoint)
 
 
 Character.characterForm.addEventListener('submit', handleSubmit)
+Team.teamForm.addEventListener('submit', handleTeamSubmit)
 
 characterService.getCharacters()
 teamService.getTeams()
 Character.renderForm()
+Team.renderTeamForm()
 
 
-function handleSubmit(){
-    event.preventDefault()
+function handleSubmit(e){
+    e.preventDefault()
     characterService.createCharacter()
-    event.target.reset()
+    e.target.reset()
+}
+
+function handleTeamSubmit(e){
+    e.preventDefault()
+    teamService.createTeam()
+    e.target.reset()
 }

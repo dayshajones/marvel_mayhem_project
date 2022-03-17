@@ -36,7 +36,8 @@ class CharacterService{
         fetch(`${this.endpoint}/characters`, configObj)
         .then(resp => resp.json())
         .then(character => {
-            const c = new Character(character)
+            // debugger
+            const c = new Character({id:character.data.id, ...character.data.attributes})
             c.addOnDom()
         })
     }

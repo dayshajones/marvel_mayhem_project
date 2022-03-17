@@ -3,7 +3,7 @@ class Character {
 
     static all = []
     static charactersContainer = document.getElementById("characters-container")
-    static characterForm = document.getElementById('form-container')
+    static characterForm = document.getElementById('character-form-container')
 
     constructor({ name, description, thumbnail, id, team_id }) {
         this.name = name
@@ -13,7 +13,7 @@ class Character {
         this.team_id = team_id
         // this.team = team.name
         // debugger
-        this.element = document.createElement('ul')
+        this.element = document.createElement('div')
         this.element.addEventListener('click', this.handleClick)
         Character.all.push(this)
     }
