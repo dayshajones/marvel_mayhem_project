@@ -42,6 +42,7 @@ class Character {
 
     static renderForm() {
         Character.characterForm.innerHTML += `
+        <h4>Create Character:</h4>
         <form id="new-character-form">
             Character Name: <input type="text" id="name">
             <br><br>

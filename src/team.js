@@ -3,13 +3,13 @@ class Team {
     static all = []
     static teamsContainer = document.getElementById("teams-container")
     static teamForm = document.getElementById('team-form-container')
+    static teamButton = document.querySelector('button.btn')
 
 
     constructor({id, name }){
         this.id = id
         this.name = name
         this.element = document.createElement('div')
-
         Team.all.push(this)
     }
 
@@ -25,6 +25,7 @@ class Team {
 
     static renderTeamForm() {
         Team.teamForm.innerHTML += `
+        <h4>Create Team:</h4>
         <form id="new-team-form">
             Team Name: <input type="text" id="name">
             <br><br>
@@ -35,7 +36,7 @@ class Team {
 
     addOnDom(){
         Team.teamsContainer.append(this.renderTeam())
-        // this.addListeners()
+        
     }
 
 
@@ -45,6 +46,10 @@ class Team {
         option.innerText = this.name;
         document.getElementById("team-dropdown").appendChild(option)
     }
-
+    
+    hideTeamForm() {
+        Team.teamForm.style.display = "none"
+    }
+    
     
 }
