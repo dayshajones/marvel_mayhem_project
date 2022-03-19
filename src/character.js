@@ -4,6 +4,7 @@ class Character {
     static all = []
     static charactersContainer = document.getElementById("characters-container")
     static characterForm = document.getElementById('character-form-container')
+    static characterButton = document.querySelector('button.btn').nextElementSibling
 
     constructor({ name, description, thumbnail, id, team_id }) {
         this.name = name
@@ -59,8 +60,8 @@ class Character {
     }
 
     addOnDom(){
-        // Character.charactersContainer.appendChild(this.characterHTML())
-        Character.charactersContainer.append(this.characterHTML())
+        Character.charactersContainer.appendChild(this.characterHTML())
+        // Character.charactersContainer.append(this.characterHTML())
     }
 
     handleClick = () => {

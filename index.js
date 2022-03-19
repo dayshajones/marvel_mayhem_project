@@ -26,18 +26,15 @@ function handleTeamSubmit(e){
     teamService.createTeam()
     e.target.reset()
     hideTeamForm()
-    handleTeamButton()
 }
 
 function handleTeamButton(){
     if(event.target.innerText === "Create Team"){
+        hideTeamButton()
         Team.renderTeamForm()
     }
 }
-// function hideTeamForm() {
-//     Team.teamForm.style.display = "none"
-// };
 
-// function showTeamForm(e){
-//     Team.teamForm.style.display = "block"
-// }
+function hideTeamButton() {
+    Team.teamButton.style.display = "none"
+} 
