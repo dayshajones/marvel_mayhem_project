@@ -6,13 +6,13 @@ class Character {
     static characterForm = document.getElementById('character-form-container')
     static characterButton = document.querySelector('button.btn').nextElementSibling
 
-    constructor({ name, description, thumbnail, id, team_id }) {
+    constructor({ name, description, thumbnail, id, team_id, team }) {
         this.name = name
         this.description = description
         this.thumbnail = thumbnail
         this.id = id
         this.team_id = team_id
-        // this.team = team.name
+        this.team = team
         // debugger
         this.element = document.createElement('div')
         this.element.addEventListener('click', this.handleClick)
@@ -28,6 +28,7 @@ class Character {
                                 <h5 class="card-title">${this.name}</h5>
                                 <p class="card-text">${this.description}</p>
                                 <p class="card-text">${this.team_id}</p>
+                                <p class="card-text">${this.team.name}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
@@ -60,8 +61,7 @@ class Character {
     }
 
     addOnDom(){
-        Character.charactersContainer.appendChild(this.characterHTML())
-        // Character.charactersContainer.append(this.characterHTML())
+        Character.charactersContainer.prepend(this.characterHTML())
     }
 
     handleClick = () => {

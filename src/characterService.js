@@ -9,7 +9,7 @@ class CharacterService{
     .then(r => r.json())
     .then(data => {
         data["data"].forEach((character) => {
-            const c = new Character({id:character.id, ...character.attributes})
+            const c = new Character({id:character.id, ...character.attributes })
                 c.addOnDom()
             })
         })
