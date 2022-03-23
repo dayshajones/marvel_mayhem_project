@@ -19,7 +19,6 @@ function handleSubmit(e){
     e.preventDefault()
     characterService.createCharacter()
     e.target.reset()
-    showTeamButton()
 }
 
 function handleTeamSubmit(e){
@@ -38,5 +37,9 @@ function handleTeamButton(){
 
 function hideTeamButton() {
     Team.teamButton.style.display = "none"
+} 
+
+function showTeamButton() {
+    Team.teamButton.style.display = "block"
 } 
 

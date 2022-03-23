@@ -5,7 +5,7 @@ class CharacterService{
     }
 
    getCharacters() {
-    fetch(`${this.endpoint}/characters`) //when endpoint is hit data is array of objects
+    fetch(`${this.endpoint}/characters`)
     .then(r => r.json())
     .then(data => {
         data["data"].forEach((character) => {
@@ -36,7 +36,6 @@ class CharacterService{
         fetch(`${this.endpoint}/characters`, configObj)
         .then(resp => resp.json())
         .then(character => {
-            // debugger
             const c = new Character({id:character.data.id, ...character.data.attributes})
             c.addOnDom()
         })
