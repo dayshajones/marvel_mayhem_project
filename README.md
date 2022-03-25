@@ -1,6 +1,6 @@
 # Marvel Mayhem
 
-A single-page-applcation to create your own Avengers Team by adding your favorite characters to it.
+A single-page-applcation to create your own Avengers by adding a list of characters to your team.
 
 
 For backend visit:
