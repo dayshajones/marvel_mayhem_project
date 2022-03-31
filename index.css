@@ -4,10 +4,10 @@ html {
 
 .album {
   background-image: url("images/marvel.jpg");
-   background-position: center;
-   background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
-   background-size: cover;
+  background-size: cover;
 }
 
 .jumbotron {
@@ -70,3 +70,24 @@ html {
   margin: 20px; 
   }
 
+
+  .col-md-4 {
+    float: left;
+    padding: 10px;
+    display: flex;
+    
+  }
+
+  .card mb-4 shadow-sm {
+    overflow:hidden;
+  }
+
+  .card-img-top {
+    width:  300px;
+    height: 300px;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+  }

@@ -15,7 +15,7 @@ class Team {
 
     renderTeam(){
         this.element.innerHTML += `
-            <ul class="list-group ">
+            <ul class="list-group">
                 <li class="list-group-item">${this.name}</li>
             </ul>
             `
@@ -39,17 +39,11 @@ class Team {
         
     }
 
-
     addToForm(){
         const option = document.createElement('option');
         option.value = this.id;
         option.innerText = this.name;
         document.getElementById("team-dropdown").appendChild(option)
     }
-    
-    hideTeamForm() {
-        Team.teamForm.style.display = "none"
-    }
-    
     
 }

@@ -1,5 +1,5 @@
 class Character {
-    //remember objects
+
 
     static all = []
     static charactersContainer = document.getElementById("characters-container")
@@ -13,21 +13,19 @@ class Character {
         this.id = id
         this.team_id = team_id
         this.team = team
-        // debugger
         this.element = document.createElement('div')
         this.element.addEventListener('click', this.handleClick)
         Character.all.push(this)
     }
 
-    characterHTML(){ // responsible for creating innerHTML for element
+    characterHTML(){ 
         this.element.innerHTML += `
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <img src=${this.thumbnail} class="card-img-top" alt="...">
+                        <img src=${this.thumbnail} class="card-img-top" alt="character">
                             <div class="card-body">
                                 <h5 class="card-title">${this.name}</h5>
                                 <p class="card-text">${this.description}</p>
-                                <p class="card-text">${this.team_id}</p>
                                 <p class="card-text">${this.team.name}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">

@@ -42,4 +42,3 @@ function hideTeamButton() {
 function showTeamButton() {
     Team.teamButton.style.display = "block"
 } 
-

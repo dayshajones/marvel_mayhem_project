@@ -4,7 +4,7 @@ class TeamService {
     }
 
     getTeams() {
-        fetch(`${this.endpoint}/teams`) //when endpoint is hit data is array of objects
+        fetch(`${this.endpoint}/teams`)
         .then(r => r.json())
         .then(data => {
             data["data"].forEach((team) => {
