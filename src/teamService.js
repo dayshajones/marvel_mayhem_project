@@ -11,6 +11,7 @@ class TeamService {
                 const t = new Team({id:team.id, ...team.attributes})
                     t.addOnDom()
                     t.addToForm()
+                    t.teamSelect()
                 })
             })
         }
@@ -36,6 +37,7 @@ class TeamService {
             const t = new Team({id:team.data.id, ...team.data.attributes})
             t.addOnDom()
             t.addToForm()
+            t.teamSelect()
         })
     }
 }

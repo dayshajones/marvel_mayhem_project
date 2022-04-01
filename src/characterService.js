@@ -10,7 +10,7 @@ class CharacterService{
     .then(data => {
         data["data"].forEach((character) => {
             const c = new Character({id:character.id, ...character.attributes })
-                c.addOnDom()
+            c.addOnDom()
             })
         })
     }

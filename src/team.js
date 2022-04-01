@@ -4,7 +4,7 @@ class Team {
     static teamsContainer = document.getElementById("teams-container")
     static teamForm = document.getElementById('team-form-container')
     static teamButton = document.querySelector('button.btn')
-
+    static teamSelect = document.querySelector('#teams-select')
 
     constructor({id, name }){
         this.id = id
@@ -46,4 +46,11 @@ class Team {
         document.getElementById("team-dropdown").appendChild(option)
     }
     
+    teamSelect(){
+        const select = document.createElement('option');
+        select.value = this.id;
+        select.innerText = this.name;
+        Team.teamSelect.appendChild(select)
+    }
+
 }

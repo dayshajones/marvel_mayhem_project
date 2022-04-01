@@ -5,10 +5,13 @@ const teamService = new TeamService(endpoint)
 Character.characterForm.addEventListener('submit', handleSubmit)
 Team.teamForm.addEventListener('submit', handleTeamSubmit)
 Team.teamButton.addEventListener('click', handleTeamButton)
+Team.teamSelect.addEventListener('change', handleSelectedTeam)
+
 
 characterService.getCharacters()
 teamService.getTeams()
 Character.renderForm()
+
 // Team.renderTeamForm()
 
 function hideTeamForm() {
@@ -41,4 +44,16 @@ function hideTeamButton() {
 
 function showTeamButton() {
     Team.teamButton.style.display = "block"
-} 
+}
+
+function handleSelectedTeam() {
+    const c = Character.all
+    const selectedTeam = document.querySelector('#teams-select').value
+    const filteredCharacters = c.filter((element)=>{ return element.team_id == selectedTeam; });
+
+    Character.charactersContainer.innerHTML = ""
+
+        filteredCharacters.forEach(character => {
+            Character.charactersContainer.innerHTML += character.renderSelectedCharacters()
+        })
+}
