@@ -1,18 +1,19 @@
 const endpoint = "http://127.0.0.1:3000"
 const characterService = new CharacterService(endpoint)
 const teamService = new TeamService(endpoint)
+const c = Character.all
 
 Character.characterForm.addEventListener('submit', handleSubmit)
 Team.teamForm.addEventListener('submit', handleTeamSubmit)
 Team.teamButton.addEventListener('click', handleTeamButton)
 Team.teamSelect.addEventListener('change', handleSelectedTeam)
+Character.characterButton.addEventListener('click', viewAllCharacters)
 
 
 characterService.getCharacters()
 teamService.getTeams()
 Character.renderForm()
 
-// Team.renderTeamForm()
 
 function hideTeamForm() {
     Team.teamForm.style.display = "none"
@@ -47,13 +48,23 @@ function showTeamButton() {
 }
 
 function handleSelectedTeam() {
-    const c = Character.all
+    // const c = Character.all
     const selectedTeam = document.querySelector('#teams-select').value
-    const filteredCharacters = c.filter((element)=>{ return element.team_id == selectedTeam; });
-
+    const filteredCharacters = c.filter((element) => {
+        return element.team_id == selectedTeam; 
+    });
     Character.charactersContainer.innerHTML = ""
+    
+    filteredCharacters.forEach(character => {
+        Character.charactersContainer.innerHTML += 
+        character.renderSelectedCharacters()
+    })
+}
 
-        filteredCharacters.forEach(character => {
-            Character.charactersContainer.innerHTML += character.renderSelectedCharacters()
-        })
+function viewAllCharacters() {
+    Character.charactersContainer.innerHTML = ""
+    c.forEach(character => {
+        Character.charactersContainer.innerHTML += 
+        character.renderSelectedCharacters()
+    })
 }

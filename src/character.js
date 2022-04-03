@@ -3,8 +3,7 @@ class Character {
     static all = []
     static charactersContainer = document.getElementById("characters-container")
     static characterForm = document.getElementById('character-form-container')
-    static characterButton = document.querySelector('button.btn').nextElementSibling
-    // static teamSelect = document.querySelector('#teams-select')
+    static characterButton = document.querySelector("button.btn.btn-secondary")
 
     constructor({ name, description, thumbnail, id, team_id, team }) {
         this.name = name
@@ -80,11 +79,6 @@ class Character {
                                 <p class="card-description">${this.description}</p>
                                 <p class="card-team">${this.team.name}</p>
                                 <p class="card-team-id">${this.team_id}</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
