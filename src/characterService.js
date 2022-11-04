@@ -41,7 +41,6 @@ class CharacterService{
         })
     }
 
-
     deleteCharacter(id){
         const configObject = {
             method: 'DELETE'

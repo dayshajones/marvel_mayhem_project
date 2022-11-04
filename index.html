@@ -47,19 +47,33 @@
 
 <main role="main">
 
+  <form id="user-comments-form">
+    <input id="user-comments-input"  type="text">
+    <input id="user-comments-submit"  type="submit">
+  </form>
+  
+  <p>Submitted comments will appear here inside this div below:</p>
+  
+  <div id="user-comments-div"> </div>
+
   
   <section class="jumbotron text-center">
     <div class="container">
       <div class="row">
         <div class="col-sm">
           <h1>Marvel Mayhem</h1>
-          
+          <br>
+          <p>A place to keep track of your own Avengers team!</p>
+          <button type="button" class="btn btn-secondary">View Characters</button>
+          <br>
+          <br>
           <div id="team-form-container">
         
           </div>
+          <!-- <button type="button" class="btn btn-primary">Create Team</button>
+          <br> -->
           <br>
           <br>
-
           <div id="character-form-container">
           <!-- <p class="lead text-muted">Create a Character...</p> -->
           </div>
@@ -74,14 +88,8 @@
         </div>
     </div>
     <div class="col-sm">
-      <button type="button" class="btn btn-primary">Create Team</button>
-      <button type="button" class="btn btn-secondary">View Characters</button>
       <div id="team-select-div">
-        <h5>View team:</h5>
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">View Team</button>
-        <select id="teams-select" name="teams-select">
-            View Team
-          </button>
+        <h5>View team:</h5><select id="teams-select" name="teams-select">
         </select>
         <br><br>
     </div>

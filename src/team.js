@@ -3,7 +3,7 @@ class Team {
     static all = []
     static teamsContainer = document.getElementById("teams-container")
     static teamForm = document.getElementById('team-form-container')
-    static teamButton = document.querySelector('button.btn')
+    static teamButton = document.querySelector("button.btn.btn-primary")
     static teamSelect = document.querySelector('#teams-select')
 
     constructor({id, name }){
@@ -22,6 +22,7 @@ class Team {
         this.element.id = `team-${this.id}`
         return this.element
     }
+
 
     static renderTeamForm() {
         Team.teamForm.innerHTML += `
